@@ -9,10 +9,10 @@ import {Recipe} from "./pages/RecipePage/Recipe";
 import {Blog} from "./pages/Blog/Blog";
 import {BlogOverview} from "./pages/BlogOverview/BlogOverview";
 import {Registration} from "./pages/Registration/Registration";
-import {UserAccount} from "./pages/UserAccount/UserAccount";
+import {Account} from "./pages/Account/Account";
 import {PrivateRoute} from "./components/PrivateRoute/PrivateRoute"
 import {useState} from "react";
-
+import './App.css';
 
 function App() {
 
@@ -20,52 +20,58 @@ function App() {
 
   return (
     <>
-      <TopMenu
-      isAuthenticated={isAuthenticated}
-      toggleAuth={toggleIsAuthenticated}
-      >
+      <section className='outer-container'>
+        <article className='inner-container'>
+          <TopMenu
+          isAuth={isAuthenticated}
+          toggleAuth={toggleIsAuthenticated}
+          >
 
-      </TopMenu>
+          </TopMenu>
 
-      <Switch>
-        <Route exact path="/">
-          <Home> </Home>
-        </Route>
+          <Switch>
+            <Route exact path="/">
+              <Home> </Home>
+            </Route>
 
-        <Route path="/login">
-          <Login
-              loginToggle={toggleIsAuthenticated}
-          />
-        </Route>
+            <Route path="/login">
+              <Login
+                  toggleAuth={toggleIsAuthenticated}
+              />
+            </Route>
 
-        <Route path="/registration">
-          <Registration/>
-        </Route>
+            <Route path="/registration">
+              <Registration/>
+            </Route>
 
-        <PrivateRoute path="/UserAccount/:username" isAuth={isAuthenticated}>
-          <UserAccount/>
-        </PrivateRoute>
+            <PrivateRoute path="/Account/:Username" isAuth={isAuthenticated}>
+              <Account
+              toggleAuth={toggleIsAuthenticated}
+              />
+            </PrivateRoute>
 
-        <Route path="/RandomCocktail">
-          <RandomCocktail/>
-        </Route>
+            <Route path="/RandomCocktail">
+              <RandomCocktail/>
+            </Route>
 
-        <Route path="/AdvancedSearch">
-          <AdvancedSearch/>
-        </Route>
+            <Route path="/AdvancedSearch">
+              <AdvancedSearch/>
+            </Route>
 
-        <Route path="/Recipe/:id">
-          <Recipe/>
-        </Route>
+            <Route path="/Recipe/:id">
+              <Recipe/>
+            </Route>
 
-        <Route exact path="/Blog">
-          <BlogOverview/>
-        </Route>
+            <Route exact path="/Blog">
+              <BlogOverview/>
+            </Route>
 
-        <Route path="/Blog/:id">
-          <Blog/>
-        </Route>
-      </Switch>
+            <Route path="/Blog/:id">
+              <Blog/>
+            </Route>
+          </Switch>
+        </article>
+      </section>
     </>
   );
 }

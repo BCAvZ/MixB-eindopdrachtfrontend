@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import axios from "axios";
 
-const apiKey = 1
-
 export function Home() {
 
-    const [Recipes,setRecipes] = useState({})
+    const [recipes,setRecipes] = useState({})
+    const [userInput, setUserInput] = useState("")
+
+    console.log(userInput)
 
     useEffect(() => {
         async function fetchData() {
@@ -21,7 +22,7 @@ export function Home() {
             }
         }
 
-        if (Recipes) {
+        if (recipes) {
             fetchData();
         }
 
@@ -32,11 +33,13 @@ export function Home() {
         <div>
             <p>homepagina</p>
 
-            {Object.keys(Recipes).length > 0 &&
 
+            <textarea onChange={(e) => setUserInput(e.target.value)}  placeholder="Typ hier de naam van je cocktail, een ingredient van de cocktail of een categorie zoals shotglas!"> </textarea>
+
+            {Object.keys(recipes).length > 0 &&
                 <>
-                    <p> {Recipes[0].strDrink}</p>
-                    <img src={Recipes[0].strDrinkThumb} alt='picture of a drink'></img>
+                    <p> {recipes[0].strDrink}</p>
+                    <img src={recipes[0].strDrinkThumb} alt='a drink'></img>
                 </>
             }
 
