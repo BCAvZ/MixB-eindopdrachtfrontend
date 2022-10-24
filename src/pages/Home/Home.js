@@ -39,7 +39,7 @@ export function Home() {
             {Object.keys(recipes).length > 0 &&
                 <>
                     <p> {recipes[0].strDrink}</p>
-                    <img src={recipes[0].strDrinkThumb} alt='a drink'></img>
+                    <img src={recipes[0].strDrinkThumb} alt='a drink'/>
                 </>
             }
 

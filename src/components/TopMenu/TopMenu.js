@@ -1,34 +1,40 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {NavLink} from 'react-router-dom'
 import styles from './TopMenu.module.css'
+import CocktailPicture from '../../assets/pictures/Cocktail-home.png'
+import RandomPicture from '../../assets/pictures/Question-cocktail.png'
+import blogPicture from '../../assets/pictures/blog-cocktail.png'
+import loginPicture from '../../assets/pictures/Login-empty-face.png'
+import {AuthContext} from "../../context/AuthContext";
 
-export function TopMenu({isAuth, toggleAuth}) {
+
+export function TopMenu() {
+
+    const {isAuth} = useContext(AuthContext)
 
     const [isActive, setIsActive] = useState('/');
-
-    function signOut() {
-        toggleAuth(false);
-    }
 
     return (
         <nav>
 
             <ul className={styles['Navbar']}>
                 <li>
+
                     <NavLink to="/" onClick={() => setIsActive('/')} className={isActive === '/' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                       <img src="../../assets/pictures/blog-cocktail.png" alt='drink'></img> <span>Home</span>
+                        <img src={CocktailPicture} alt='drink' className={styles['navBarPic']}/> Home
                     </NavLink>
+
                 </li>
 
                 <li>
                     <NavLink to="/RandomCocktail" onClick={() => setIsActive('/RandomCocktail')} className={isActive === '/RandomCocktail' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                        Random Cocktail!
+                        <img src={RandomPicture} alt='drink' className={styles['navBarPic']}/> Random Cocktail!
                     </NavLink>
                 </li>
 
                 <li>
                     <NavLink to="/BlogOverview" onClick={() => setIsActive('/BlogOverview')} className={isActive === '/BlogOverview' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                        Blog!
+                        <img src={blogPicture} alt='drink' className={styles['navBarPic']}/> Blog!
                     </NavLink>
                 </li>
 
@@ -43,7 +49,7 @@ export function TopMenu({isAuth, toggleAuth}) {
                     :
                     <li>
                         <NavLink to="/Login" onClick={() => setIsActive('/login')} className={isActive === '/login' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                            Login
+                            <img src={loginPicture} alt='drink' className={styles['navBarPic']}/> Login
                         </NavLink>
                     </li>}
             </ul>

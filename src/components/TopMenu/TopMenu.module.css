@@ -23,9 +23,12 @@ ul {
 }
 
 li {
+    display: flex;
     font-weight: bold;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.37);
     padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .link-is-active {
@@ -41,3 +44,13 @@ a:link {
     text-decoration: none;
 }
 
+.navBarPic {
+    width: 30px;
+    height: 30px;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AuthContext } from "../../context/AuthContext";
 
-export function Account({toggleAuth}) {
+export function Account() {
 
-    function signOut() {
-        toggleAuth(false);
-    }
+    const {logout} = useContext(AuthContext)
 
     return (
         <div>
             <p>je bent er!</p>
 
-            <button type="button" onClick={signOut}>
+            <button type="button" onClick={logout}>
                 Uitloggen
             </button>
 

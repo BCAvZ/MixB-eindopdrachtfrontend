@@ -8,26 +8,18 @@ import {AdvancedSearch} from "./pages/AdvancedSearch/AdvancedSearch";
 import {Recipe} from "./pages/RecipePage/Recipe";
 import {Blog} from "./pages/Blog/Blog";
 import {BlogOverview} from "./pages/BlogOverview/BlogOverview";
-import {Registration} from "./pages/Registration/Registration";
 import {Account} from "./pages/Account/Account";
 import {PrivateRoute} from "./components/PrivateRoute/PrivateRoute"
-import {useState} from "react";
+import {Registration} from './pages/Registration/Registration'
 import './App.css';
 
 function App() {
-
-  const [isAuthenticated, toggleIsAuthenticated ] = useState(false);
 
   return (
     <>
       <section className='outer-container'>
         <article className='inner-container'>
-          <TopMenu
-          isAuth={isAuthenticated}
-          toggleAuth={toggleIsAuthenticated}
-          >
-
-          </TopMenu>
+          <TopMenu> </TopMenu>
 
           <Switch>
             <Route exact path="/">
@@ -35,19 +27,15 @@ function App() {
             </Route>
 
             <Route path="/login">
-              <Login
-                  toggleAuth={toggleIsAuthenticated}
-              />
+              <Login />
             </Route>
 
             <Route path="/registration">
               <Registration/>
             </Route>
 
-            <PrivateRoute path="/Account/:Username" isAuth={isAuthenticated}>
-              <Account
-              toggleAuth={toggleIsAuthenticated}
-              />
+            <PrivateRoute path="/Account/:Username">
+              <Account />
             </PrivateRoute>
 
             <Route path="/RandomCocktail">
