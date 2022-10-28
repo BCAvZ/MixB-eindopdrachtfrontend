@@ -1,47 +1,64 @@
-import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import {useForm} from "react-hook-form";
 
 export function Registration() {
 
-    const history = useHistory();
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: {errors}  } = useForm();
 
-    const [registerInfo, setRegisterInfo] = useState({
-        username:'',
-        email:'',
-        password:'',
-        role: ["user"],
-    })
-
-    function handleSubmit (e) {
-        e.preventDefault()
-        registerUser()
-    }
-
-    async function registerUser() {
-
-        const { username, email, password, role } = registerInfo
-        const user = {username, email, password, role};
+    async function registerUser(data) {
+        const user = {
+            ...data,
+            role: ["user"],
+        };
 
         try {
             await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup',
                 user
             )
-            history.push('/')
+            navigate('/Login')
         } catch (e) {
             console.error(e)
             console.log(e.response.message)
         }}
 
+
     return (
         <>
             <h1>Registreren</h1>
             <p>Maak een account aan door alle drie de velden in te vullen en vervolgens op indienen te klikken!</p>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="emailadres" onChange={(e) => setRegisterInfo({...registerInfo, email:e.target.value})} value={registerInfo.email}/>
-                <input type="text" placeholder="gebruikersnaam" onChange={(e) => setRegisterInfo({...registerInfo, username:e.target.value})} value={registerInfo.username}/>
-                <input type="text" placeholder="wachtwoord" onChange={(e) => setRegisterInfo({...registerInfo, password:e.target.value})} value={registerInfo.password}/>
-                <button type="submit">indienen</button>
+            <form onSubmit={handleSubmit(registerUser)}>
+                <fieldset>
+                    <h4>Gebruikersnaam:</h4>
+                    <input type='text' autoComplete='username' {...register('username',
+                        {
+                            required: 'Gebruikersnaam mag niet leeg zijn',
+                            minLength: {
+                                value: 6,
+                                message: 'Er moeten minimaal 6 karakters gebruikt worden'
+                            },
+                        })}/>
+                    {errors.username && <p>{errors.username.message}</p>}
+
+                    <h4>Email:</h4>
+                    <input type='email' autoComplete='email' {...register('email', {
+                            required: 'Email mag niet leeg zijn',
+                     })}
+                    />
+                    {errors.email && <p>{errors.email.message}</p>}
+
+                    <h4>Wachtwoord:</h4>
+                    <input type='password' autoComplete="new-password" {...register('password', {required: 'Wachtwoord mag niet leeg zijn', minLength: {
+                          value: 6,
+                          message: 'Er moeten minimaal 6 karakters gebruikt worden'
+                        },
+                    })}/>
+                    {errors.password && <p>{errors.password.message}</p>}
+
+                    <button type="submit">indienen</button>
+                </fieldset>
             </form>
             <Link to="/Login">Heb je al een account? Je kunt je hier inloggen.</Link>
         </>

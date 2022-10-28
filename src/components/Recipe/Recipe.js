@@ -1,7 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './Recipe.module.css'
 
 export function Recipe({apiResult}) {
+    console.log(apiResult)
+
     return (
         <div>
             {Object.keys(apiResult).length > 0 &&

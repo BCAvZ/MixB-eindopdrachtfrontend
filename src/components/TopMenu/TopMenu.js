@@ -10,9 +10,18 @@ import {AuthContext} from "../../context/AuthContext";
 
 export function TopMenu() {
 
-    const {isAuth} = useContext(AuthContext)
+    const {isAuth, userName, profilePicture} = useContext(AuthContext)
+    const userProfile = `/Account/${userName}`
 
-    const [isActive, setIsActive] = useState('/');
+    const [isActive, setIsActive] = useState('');
+
+    function profilePictureSet() {
+        if(profilePicture) {
+            return {profilePicture}
+        } else {
+            return {loginPicture}
+        }
+    }
 
     return (
         <nav>
@@ -33,7 +42,7 @@ export function TopMenu() {
                 </li>
 
                 <li>
-                    <NavLink to="/BlogOverview" onClick={() => setIsActive('/BlogOverview')} className={isActive === '/BlogOverview' ? styles['link-is-active'] : styles['link-is-not-active']}>
+                    <NavLink to="/Blog" onClick={() => setIsActive('/Blog')} className={isActive === '/Blog' ? styles['link-is-active'] : styles['link-is-not-active']}>
                         <img src={blogPicture} alt='drink' className={styles['navBarPic']}/> Blog!
                     </NavLink>
                 </li>
@@ -41,15 +50,18 @@ export function TopMenu() {
                 {isAuth === true
                     ? <>
                         <li>
-                            <NavLink to="/Account/:Username" onClick={() => setIsActive('/Account')} className={isActive === '/Account' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                                Account
+                            <NavLink to={userProfile} onClick={() => setIsActive('/Account')} className={isActive === '/Account' ? styles['link-is-active'] : styles['link-is-not-active']}>
+                                <picture>
+                                    <source srcSet={profilePicture} type="image/webp"/>
+                                        <img src={loginPicture} alt="bar" className={styles['navBarPic']}/> Account
+                                </picture>
                             </NavLink>
                         </li>
                     </>
                     :
                     <li>
                         <NavLink to="/Login" onClick={() => setIsActive('/login')} className={isActive === '/login' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                            <img src={loginPicture} alt='drink' className={styles['navBarPic']}/> Login
+                            <img src={loginPicture} alt='login' className={styles['navBarPic']}/> Login
                         </NavLink>
                     </li>}
             </ul>

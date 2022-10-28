@@ -1,5 +1,4 @@
 import './App.css';
-import {Switch, Route} from "react-router-dom";
 import {TopMenu} from "./components/TopMenu/TopMenu";
 import {Home} from "./pages/Home/Home";
 import {Login} from "./pages/Login/Login";
@@ -12,6 +11,8 @@ import {Account} from "./pages/Account/Account";
 import {PrivateRoute} from "./components/PrivateRoute/PrivateRoute"
 import {Registration} from './pages/Registration/Registration'
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+
 
 function App() {
 
@@ -19,45 +20,32 @@ function App() {
     <>
       <section className='outer-container'>
         <article className='inner-container'>
-          <TopMenu> </TopMenu>
+          <TopMenu/>
+            <Routes>
+              <Route path="/" element={<Home />}/>
 
-          <Switch>
-            <Route exact path="/">
-              <Home> </Home>
-            </Route>
+              <Route path="/login" element={<Login />}/>
 
-            <Route path="/login">
-              <Login />
-            </Route>
+              <Route path="/registration" element={<Registration />}/>
 
-            <Route path="/registration">
-              <Registration/>
-            </Route>
+              <Route path="/Account/:Username"
+                     element={
+                        <PrivateRoute>
+                          <Account/>
+                        </PrivateRoute>
+                    }>
+              </Route>
 
-            <PrivateRoute path="/Account/:Username">
-              <Account />
-            </PrivateRoute>
+              <Route path="/RandomCocktail" element={<RandomCocktail />}/>
 
-            <Route path="/RandomCocktail">
-              <RandomCocktail/>
-            </Route>
+              <Route path="/AdvancedSearch" element={<AdvancedSearch />}/>
 
-            <Route path="/AdvancedSearch">
-              <AdvancedSearch/>
-            </Route>
+              <Route path="/Recipe/:id" element={<Recipe />}/>
 
-            <Route path="/Recipe/:id">
-              <Recipe/>
-            </Route>
-
-            <Route exact path="/Blog">
-              <BlogOverview/>
-            </Route>
-
-            <Route path="/Blog/:id">
-              <Blog/>
-            </Route>
-          </Switch>
+              <Route path="/Blog" element={<BlogOverview />}>
+                <Route path=":id" element={<Blog />}/>
+              </Route>
+            </Routes>
         </article>
       </section>
     </>

@@ -2,29 +2,16 @@ import React, {useContext, useState} from 'react';
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {useForm} from "react-hook-form";
 
 export function Login() {
-
     const { login } = useContext(AuthContext)
+    const { register, handleSubmit, formState: {errors}  } = useForm();
 
-    const [loginInfo, setLoginInfo] = useState({
-        username:'',
-        password:'',
-    })
-
-    function handleSubmit (e) {
-        e.preventDefault()
-        loginUser()
-    }
-
-    async function loginUser() {
-
-        const { username, password} = loginInfo
-        const userInfo = {username, password};
-
+    async function loginUser(data) {
         try {
             const result  = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin',
-                userInfo
+                data
             )
             login(result.data.accessToken)
         }catch (e) {
@@ -35,14 +22,30 @@ export function Login() {
         <section>
             <h1>Login pagina</h1>
             <p>Druk op de knop om je in te loggen!</p>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="gebruikersnaam" onChange={(e) => setLoginInfo({...loginInfo, username:e.target.value})} value={loginInfo.username}/>
-                <input type="text" placeholder="wachtwoord" onChange={(e) => setLoginInfo({...loginInfo, password:e.target.value})} value={loginInfo.password}/>
-                <button type="submit">Inloggen</button>
+            <form onSubmit={handleSubmit(loginUser)}>
+                <fieldset>
+                    <h4>Gebruikersnaam:</h4>
+                    <input type='text' {...register('username',
+                        {
+                            required: 'Gebruikersnaam mag niet leeg zijn',
+                            minLength: {
+                                value: 6,
+                                message: 'Er moeten minimaal 6 karakters gebruikt worden'
+                            },
+                        })}/>
+                    {errors.username && <p>{errors.username.message}</p>}
+
+                    <h4>Wachtwoord:</h4>
+                    <input type='text' {...register('password', {required: 'Wachtwoord mag niet leeg zijn', minLength: {
+                            value: 6,
+                            message: 'Er moeten minimaal 6 karakters gebruikt worden'
+                        },
+                    })}/>
+                    {errors.password && <p>{errors.password.message}</p>}
+
+                    <button type="submit">Inloggen</button>
+                </fieldset>
             </form>
-
-
-
             <Link to="/registration">Heb je nog geen account? Klik hier om je te registreren bij de leukste app van Nederland!</Link>
         </section>
     );

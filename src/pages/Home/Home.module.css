@@ -1,0 +1,21 @@
+.searchField {
+    position: relative;
+    width: 90%;
+    background: #fff;
+    border-radius: 31px;
+    font-size: 18px;
+    color: #8f8fa1;
+    line-height: 1.2;
+
+    bottom: 47px;
+    left: 25px;
+
+    padding: 5px;
+}
+
+.lookingGlass {
+    position: relative;
+
+    top: 30px;
+    left: 5px;
+}

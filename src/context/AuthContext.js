@@ -1,6 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
-import {useHistory} from "react-router-dom";
-import jwtDecode from "jwt-decode";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 export const AuthContext = createContext({});
@@ -12,14 +11,13 @@ function AuthContextProvider({ children }) {
         status:'pending',
     });
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             fetchUserData(token);
         } else {
-            console.log('Geen token aanwezig')
             setAuth({
                 ...auth,
                 status:'done',
@@ -35,52 +33,51 @@ function AuthContextProvider({ children }) {
                     Authorization: `Bearer ${token}`,
                 }
             });
-            console.log(response.data);
 
             setAuth({
                 ...auth,
                 isAuth: true,
                 user: {
-                    email: response.data.email,
-                    id:response.data.id,
+                    name: response.data.username,
+                    id: response.data.id,
+                    profilePicture: response.data.profilePicture
                 },
                 status: 'done',
             })
         } catch (e) {
             console.error(e);
+            setAuth({
+                ...auth,
+                status:'done'
+            })
+            localStorage.removeItem('token');
         }}
 
     function login(token) {
-
-
         localStorage.setItem('token',token)
-        const decoded=jwtDecode(token);
-        console.log(decoded)
+        navigate('/');
 
         fetchUserData(token)
-
-        history.push(`/Account/${decoded.username}`);
-
     }
 
     function logout() {
-
-        console.log('Gebruiker is uitgelogd!');
         setAuth({
             ...auth,
             isAuth: false,
-            user: null,
+            user: false,
         });
 
         localStorage.removeItem('token');
-        history.push('/');
+        navigate('/');
     }
 
     const contextData = {
         ...auth,
         login: login,
         logout: logout,
-        setAuth:setAuth,
+        loginStatus:auth.isAuth,
+        userName:auth.user.name,
+        profilePicture:auth.user.profilePicture,
     };
 
     return (
@@ -93,51 +90,3 @@ function AuthContextProvider({ children }) {
 
 export default AuthContextProvider
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const AuthContext = createContext({});
-//
-// function AuthContextProvider({children}) {
-//
-//     const [isAuth, toggleIsAuth] = useState(false);
-//     const history = useHistory()
-//
-//     function login() {
-//         console.log('Gebruiker is ingelogd!');
-//         toggleIsAuth(true);
-//         history.push('/profile');
-//     }
-//
-//     function logout() {
-//         console.log('Gebruiker is uitgelogd!');
-//         toggleIsAuth(false);
-//         history.push('/');
-//     }
-//
-//     const contextData = {
-//         isAuth: isAuth,
-//         login: login,
-//         logout: logout,
-//     };
-//
-//     return (
-//         <AuthContext.Provider value={contextData}>
-//             {children}
-//         </AuthContext.Provider>
-//     );
-// }
