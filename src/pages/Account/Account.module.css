@@ -2,3 +2,10 @@
     width: 10vh;
     height: 10vh;
 }
+ div {
+    color:var(--textcolor);
+ }
+
+ a {
+     color: var(--textcolor);
+ }

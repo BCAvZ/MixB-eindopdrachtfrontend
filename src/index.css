@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --textcolor: rgba(255, 255, 255, 0.71);
+}
+
 body {
   margin: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

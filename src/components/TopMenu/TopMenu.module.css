@@ -1,3 +1,4 @@
+
 nav {
     display: flex;
     flex-direction: row;
@@ -32,12 +33,11 @@ li {
 }
 
 .link-is-active {
-    color: black;
-    background-color: #7b0080
+    background-color: #7c0a2a
 }
 
 .link-is-not-active {
-    color: #35013a;
+    color: #7c0a2a;
 }
 
 a:link {
@@ -53,7 +53,6 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
 }
 
 picture {
@@ -67,6 +66,6 @@ source {
     width: 100%;
 }
 
-navlink {
-    color: white;
+span {
+    color: rgba(255, 255, 255, 0.71);
 }

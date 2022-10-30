@@ -15,14 +15,6 @@ export function TopMenu() {
 
     const [isActive, setIsActive] = useState('');
 
-    function profilePictureSet() {
-        if(profilePicture) {
-            return {profilePicture}
-        } else {
-            return {loginPicture}
-        }
-    }
-
     return (
         <nav>
 
@@ -30,20 +22,20 @@ export function TopMenu() {
                 <li>
 
                     <NavLink to="/" onClick={() => setIsActive('/')} className={isActive === '/' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                        <img src={CocktailPicture} alt='drink' className={styles['navBarPic']}/> Home
+                        <img src={CocktailPicture} alt='drink' className={styles['navBarPic']}/> <span>Home</span>
                     </NavLink>
 
                 </li>
 
                 <li>
                     <NavLink to="/RandomCocktail" onClick={() => setIsActive('/RandomCocktail')} className={isActive === '/RandomCocktail' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                        <img src={RandomPicture} alt='drink' className={styles['navBarPic']}/> Random Cocktail!
+                        <img src={RandomPicture} alt='drink' className={styles['navBarPic']}/> <span>Random Cocktail!</span>
                     </NavLink>
                 </li>
 
                 <li>
                     <NavLink to="/Blog" onClick={() => setIsActive('/Blog')} className={isActive === '/Blog' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                        <img src={blogPicture} alt='drink' className={styles['navBarPic']}/> Blog!
+                        <img src={blogPicture} alt='drink' className={styles['navBarPic']}/> <span>Blog!</span>
                     </NavLink>
                 </li>
 
@@ -53,7 +45,7 @@ export function TopMenu() {
                             <NavLink to={userProfile} onClick={() => setIsActive('/Account')} className={isActive === '/Account' ? styles['link-is-active'] : styles['link-is-not-active']}>
                                 <picture>
                                     <source srcSet={profilePicture} type="image/webp"/>
-                                        <img src={loginPicture} alt="bar" className={styles['navBarPic']}/> Account
+                                    <img src={loginPicture} alt="bar" className={styles['navBarPic']}/> <span>Account</span>
                                 </picture>
                             </NavLink>
                         </li>
@@ -61,7 +53,7 @@ export function TopMenu() {
                     :
                     <li>
                         <NavLink to="/Login" onClick={() => setIsActive('/login')} className={isActive === '/login' ? styles['link-is-active'] : styles['link-is-not-active']}>
-                            <img src={loginPicture} alt='login' className={styles['navBarPic']}/> Login
+                            <img src={loginPicture} alt='login' className={styles['navBarPic']}/> <span>Login</span>
                         </NavLink>
                     </li>}
             </ul>

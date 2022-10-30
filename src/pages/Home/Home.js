@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import axios from "axios";
 import {useForm} from "react-hook-form";
@@ -9,7 +9,7 @@ export function Home() {
 
     const { register, handleSubmit, formState: {errors} } = useForm();
     const [search, setSearch] = useState('none');
-    const [searchResult,setSearchResult] = useState({})
+    const [searchResult,setSearchResult] = useState([])
 
     async function fetchData(data) {
             try {
@@ -26,6 +26,17 @@ export function Home() {
             }
         }
 
+        useEffect(()  => {
+            async function fetchPageFiller() {
+                try {
+                    const result = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a`)
+                    setSearchResult(result.data.drinks)
+                } catch (e) {
+                    console.error(e)
+                }
+            } fetchPageFiller()
+        },[])
+
     return (
         <div>
             <form onSubmit={handleSubmit(fetchData)}>
@@ -39,10 +50,13 @@ export function Home() {
                 {errors.username && <p>{errors.username.message}</p>}
             </form>
 
-            {search === 'success'?
-                <div><RecipePreviewer apiResult= {searchResult} /></div>
-                :
-                <p className='empty-space'>leeeeg</p> }
+            {search === 'none' &&
+            <div className={styles['page-filler']}><RecipePreviewer apiResult= {searchResult} /></div>
+            }
+
+            {search === 'success' &&
+                <div className={styles['page-filler']}><RecipePreviewer apiResult= {searchResult} /></div>
+            }
 
             {search === 'tryAgain' &&
                 <p>That did not lead to a result! Did you enter the name of the cocktail correctly? Partial names are fine! Or are you looking to search by ingredient, category or glass? If so go to the advanced search page! </p>
