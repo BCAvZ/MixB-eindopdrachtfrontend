@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {RecipePreviewer} from "../../components/RecipePreviewer/RecipePreviewer";
 import styles from './Home.module.css'
 import SearchBackground from '../../assets/pictures/SearchBackground.png'
 export function Home() {
-
     const { register, handleSubmit, formState: {errors} } = useForm();
     const [search, setSearch] = useState('none');
     const [searchResult,setSearchResult] = useState([])
@@ -47,25 +46,21 @@ export function Home() {
                         required: 'Zoekveld mag niet leeg zijn',
                     })}
                 className={styles['searchField']}/>
+                <Link className={styles['advanced-search-button']} to="/AdvancedSearch">Advanced search!</Link>
                 {errors.username && <p>{errors.username.message}</p>}
             </form>
 
             {search === 'none' &&
-            <div className={styles['page-filler']}><RecipePreviewer apiResult= {searchResult} /></div>
+            <div className={styles['before-page-filler']}><RecipePreviewer apiResult= {searchResult} /></div>
             }
 
             {search === 'success' &&
-                <div className={styles['page-filler']}><RecipePreviewer apiResult= {searchResult} /></div>
+                <div><RecipePreviewer apiResult= {searchResult} /></div>
             }
 
             {search === 'tryAgain' &&
                 <p>That did not lead to a result! Did you enter the name of the cocktail correctly? Partial names are fine! Or are you looking to search by ingredient, category or glass? If so go to the advanced search page! </p>
             }
-            <li>
-                <NavLink to="/AdvancedSearch">
-                    Gevorderd zoeken!
-                </NavLink>
-            </li>
 
         </div>
     );

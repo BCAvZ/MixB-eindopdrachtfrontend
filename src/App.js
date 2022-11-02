@@ -4,7 +4,7 @@ import {Home} from "./pages/Home/Home";
 import {Login} from "./pages/Login/Login";
 import {RandomCocktail} from "./pages/RandomCocktail/RandomCocktail";
 import {AdvancedSearch} from "./pages/AdvancedSearch/AdvancedSearch";
-import {Recipe} from "./pages/RecipePage/Recipe";
+import {RecipePage} from "./pages/RecipePage/RecipePage";
 import {Blog} from "./pages/Blog/Blog";
 import {BlogOverview} from "./pages/BlogOverview/BlogOverview";
 import {Account} from "./pages/Account/Account";
@@ -40,7 +40,7 @@ function App() {
 
               <Route path="/AdvancedSearch" element={<AdvancedSearch />}/>
 
-              <Route path="/Recipe/:id" element={<Recipe />}/>
+              <Route path="/RecipePage/:id" element={<RecipePage />}/>
 
               <Route path="/Blog" element={<BlogOverview />}>
                 <Route path=":id" element={<Blog />}/>

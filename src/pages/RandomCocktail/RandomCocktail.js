@@ -11,7 +11,6 @@ export function RandomCocktail() {
 
             try {
                 const result = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-                console.log(result.data)
                 setRandomCocktail(result.data.drinks)
 
             } catch (e) {

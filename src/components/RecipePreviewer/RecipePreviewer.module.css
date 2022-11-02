@@ -3,6 +3,7 @@
     width: 100px;
     height: 100px;
 
+    flex-grow: 0;
     flex-shrink: 0;
 }
 img {
@@ -14,7 +15,7 @@ img {
     display: flex;
     flex-direction: row;
 
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     flex: 1 0 200px;
@@ -38,3 +39,8 @@ img {
     justify-content: space-between;
 }
 
+.PreviewContainerText {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 200px;
+}

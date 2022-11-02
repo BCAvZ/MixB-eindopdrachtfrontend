@@ -23,3 +23,14 @@
 .page-filler {
     padding-top: 300px;
 }
+
+.advanced-search-button{
+    position: relative;
+
+    bottom: 75px;
+    left: 330px;
+    color: black;
+    background-color: #b6b1b1;
+    width: 130px;
+
+}
