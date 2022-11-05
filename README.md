@@ -1,70 +1,56 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Welcome to my first ever Application! MixB is my pride and enjoy and in this document i will explain how you too can use what i have created and expand upon it.
 
-In the project directory, you can run:
 
-### `npm start`
+1. **Functionality**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+MixB is here for everyone that wants one convenient simple go to source for cocktail recipes! How to make them for those who know what they want, or even inspiration for those that do not! The home screen is simplicity itself as you can see. The main feature is the search bar where users can enter the name of their desired recipe. On the bottom are some hand picked recipes for those looking to browse.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](src/assets/pictures/Homescreen.png)
+2. **The essentials for developers**
 
-### `npm test`
+The API critical for this app is https://www.thecocktaildb.com/api.php. There is no API key, or account only the options offered to free users were used in this application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will need an IDE, and install the following NPM modules:
+React, React-hook-form, React-router-dom and Axios.
 
-### `npm run build`
+The backend documentation can be found here: https://github.com/hogeschoolnovi/novi-educational-backend-documentation#5-
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This backend handles all registration/login/profile picture functionality with axios requests.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Installation steps**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.1 Start up your IDE of choice
 
-### `npm run eject`
+3.2 Clone the repository using HTTPS, SSH or GitHub CLI depending on your preference
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3.3 Either run NPM Install in the console or manually run npm install NAME_OF_MODULE all versions used were latest as of 5-11-2022. Issues? See 3.4 else skip ahead to 4.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.4 If you are running into issues because of feature breaking NPM releases the following versions were used and should be installed: 
+   "react": "^18.2.0",
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   "react-dom": "^18.2.0",
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   "react-hook-form": "^7.38.0",
 
-## Learn More
+   "react-router-dom": "^6.4.2",
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   "Axios version": "1.1.3",
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3.5 Open the console and enter: npm run start and you're set! Typically your IDE will open the app on http://localhost:3000/ for you in your main webbrowser. If not open one and navigate there yourself by pasting the url in by hand. 
 
-### Code Splitting
+4. **Information such as pre made accounts/Api keys**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+There are no existing accounts! The app has no use for admin accounts therefore no pre made users were made. As stated earlier there is no API KEY nor account for the API as all that was used were API endpoints of the cocktail API that are freely accessible. 
 
-### Analyzing the Bundle Size
+5.**Additional console commands**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+NPM run start is the only command necessary to run this app. No other commands were used. 
+   
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
