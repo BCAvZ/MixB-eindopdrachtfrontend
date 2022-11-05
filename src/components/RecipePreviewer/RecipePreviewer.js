@@ -14,7 +14,7 @@ export function RecipePreviewer({apiResult}) {
                                     </div>
                                     <div className={styles['TextWrapper']}>
                                         <h4> {result.strDrink}</h4>
-                                        <p>    Click for details! </p>
+                                        <p>    Click for recipe! </p>
                                     </div>
                                 </div>
                 </NavLink>

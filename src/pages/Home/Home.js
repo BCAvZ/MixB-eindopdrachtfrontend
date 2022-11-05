@@ -12,15 +12,18 @@ export function Home() {
 
     async function fetchData(data) {
             try {
-                const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${data.cocktailName}`)
-                setSearchResult(response.data.drinks)
+                    const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${data.cocktailName}`)
+                    setSearchResult(response.data.drinks)
+                    console.log(response)
+                    if(response.data.drinks=== null) {
+                        setSearch('tryAgain')
+                    } else {
+                        setSearch('success')
+                    }
 
-                if(response.data.drinks=== null) {
-                    setSearch('tryAgain')
-                } else {
-                    setSearch('success')
+                    console.log(data)
                 }
-            } catch (e) {
+             catch (e) {
                 console.error(e)
             }
         }
@@ -47,6 +50,7 @@ export function Home() {
                     })}
                 className={styles['searchField']}/>
                 <Link className={styles['advanced-search-button']} to="/AdvancedSearch">Advanced search!</Link>
+
                 {errors.username && <p>{errors.username.message}</p>}
             </form>
 

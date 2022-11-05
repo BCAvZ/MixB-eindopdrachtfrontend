@@ -1,0 +1,30 @@
+[
+  {
+    "Id":"0",
+    "Name": "Mojito",
+    "Date": "4-11-2022",
+    "Review": "Personal favorite! The first cocktail i order when i am on vacation in hotter climates.",
+    "Recipe_difficulty": "Medium",
+    "History": "Havana, Cuba, is the birthplace of the mojito, although its exact origin is the subject of debate. It was known that the local South American Indians had remedies for various tropical illnesses, so a small boarding party went ashore on Cuba and came back with ingredients for an effective medicine. The ingredients were aguardiente de caña (translated as burning water), a crude form of rum made from sugar cane) mixed with local tropical ingredients: lime, sugarcane juice, and mint. Lime juice on its own would have significantly prevented scurvy and dysentery, and tafia/rum was soon added as it became widely available to the British (ca. 1650). Mint, lime and sugar were also helpful in hiding the harsh taste of this spirit. Another theory is that it was invented by Sir Francis Drake. The El Draque cocktail was prepared with brandy.[10] While this drink was not called a mojito at this time, it was the original combination of these ingredients.",
+    "Stars": "5"
+  },
+  {
+    "Id":"1",
+    "Name": "Margarita",
+    "Date": "3-11-2022",
+    "Review":"The most well known, and commonly enjoyed cocktail out there. I am not the biggest fan of Tequila but you can't go wrong with this one. There is a nice variety of alcohol free recipes as well.",
+    "Recipe_difficulty":"Easy",
+    "History":"The history of the margarita is one of folklore due to its numerous origin stories. According to cocktail historian David Wondrich, the margarita is related to the brandy daisy (margarita is Spanish for daisy), remade with tequila instead of brandy. (Daisies are a family of cocktails that include a base spirit, liqueur, and citrus. A sidecar and gin daisy are other related drinks.) There is an account from 1936 of Iowa newspaper editor James Graham finding such a cocktail in Tijuana, years before any of the other margarita creation myths.",
+    "Stars":"4"
+  },
+  {
+    "Id":"2",
+  "Name": "Greyhound",
+  "Date": "2-11-2022",
+  "Review": "Not a fan of gin! Do not recommend this one unless you are. For the curious the alternative 'salty dog' variant with salt on the rim and with vodka instead of gin might be a better option. ",
+  "Recipe_difficulty":"Easy",
+  "History":"The earliest known mention of a cocktail of this description is in bartender and author Harry Craddock's Savoy Cocktail Book of 1930. Craddock describes his recipe as ...a variation of the Grapefruit Cocktail, suggesting that such cocktails were already in common use before his book was written. His recipe consists of nothing but gin, grapefruit juice and ice. A recipe for a similar cocktail with the name Greyhound appears in Harper's Magazine in 1945 (volume 191, page 461) thus: The cocktails were made of vodka, sugar, and canned grapefruit juice -- a greyhound. This cocktail was served at Greyhound's popular restaurant chain that was located at bus terminals, called 'Post House'.",
+  "Stars":"1"
+  }
+]
+

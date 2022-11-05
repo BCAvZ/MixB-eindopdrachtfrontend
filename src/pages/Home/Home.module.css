@@ -7,17 +7,17 @@
     color: var(--textcolor);
     line-height: 1.2;
 
-    bottom: 47px;
-    left: 25px;
+    bottom: 44px;
 
     padding: 5px;
+
 }
 
 .lookingGlass {
     position: relative;
 
     top: 30px;
-    left: 5px;
+    right: 230px;
 }
 
 .page-filler {
@@ -28,9 +28,13 @@
     position: relative;
 
     bottom: 75px;
-    left: 330px;
+    left: 150px;
     color: black;
     background-color: #b6b1b1;
     width: 130px;
 
+}
+
+form {
+    margin-bottom: 250px;
 }

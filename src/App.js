@@ -42,9 +42,9 @@ function App() {
 
               <Route path="/RecipePage/:id" element={<RecipePage />}/>
 
-              <Route path="/Blog" element={<BlogOverview />}>
-                <Route path=":id" element={<Blog />}/>
-              </Route>
+              <Route path="/BlogOverview" element={<BlogOverview />}/>
+
+              <Route path="/Blog/:id" element={<Blog />}/>
             </Routes>
         </article>
       </section>

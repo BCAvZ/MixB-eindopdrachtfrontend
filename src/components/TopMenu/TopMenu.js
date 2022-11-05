@@ -34,7 +34,7 @@ export function TopMenu() {
                 </li>
 
                 <li>
-                    <NavLink to="/Blog" onClick={() => setIsActive('/Blog')} className={isActive === '/Blog' ? styles['link-is-active'] : styles['link-is-not-active']}>
+                    <NavLink to="/BlogOverview" onClick={() => setIsActive('/BlogOverview')} className={isActive === '/Blog' ? styles['link-is-active'] : styles['link-is-not-active']}>
                         <img src={blogPicture} alt='drink' className={styles['navBarPic']}/> <span>Blog!</span>
                     </NavLink>
                 </li>
