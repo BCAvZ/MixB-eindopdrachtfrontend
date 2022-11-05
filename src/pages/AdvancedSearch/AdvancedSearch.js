@@ -52,6 +52,7 @@ export function AdvancedSearch() {
 
     return (
         <div>
+            <p>You can only search with one field at a time! It goes top down so if you want to search by ingredient leave the name field empty!</p>
             <form onSubmit={handleSubmit(removeEmptyFields)}>
                 <h4>Search by name</h4>
                 <input type='text' {...register('name')}/>
