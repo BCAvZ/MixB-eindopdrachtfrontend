@@ -27,7 +27,7 @@ export function Blog() {
     let starsCounter = stars.repeat(posts[id].Stars)
 
     return (
-        <div>
+        <article>
 
             {searchResult &&
                 <NavLink to={`/RecipePage/${searchResult[0].strDrink}`} className={styles['PreviewContainer']} >
@@ -53,7 +53,6 @@ export function Blog() {
             <h2>History!</h2>
             <p>{posts[id].History}</p>
 
-            <p>aaa</p>
-        </div>
+        </article>
     );
 }
