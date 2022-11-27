@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 export function RecipePreviewer({apiResult}) {
 
     return (
-        <div className={styles['searchResultWrapper']}>
+        <article className={styles['searchResultWrapper']}>
             {apiResult.map((result) =>
                 <NavLink to={`/RecipePage/${result.strDrink}`} className={styles['PreviewContainer']} key={result.idDrink} >
                                 <div  className={styles['PreviewContainerText']} >
@@ -19,6 +19,6 @@ export function RecipePreviewer({apiResult}) {
                                 </div>
                 </NavLink>
             )}
-        </div>
+        </article>
     );
 };

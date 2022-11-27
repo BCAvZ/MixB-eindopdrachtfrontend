@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import {useForm} from "react-hook-form";
 import {changeUserInfo} from "../../helper functions/userInfoUpdaters";
 import styles from './Account.module.css'
+import {Button} from "../../components/Button/Button";
 
 export function Account() {
 
@@ -64,7 +65,10 @@ export function Account() {
 
                 <h4>Profile picture:</h4>
                 <input type='file' accept='image/png' id='base64Image'{...register('base64Image')}/>
-                <button type="submit">Indienen</button>
+                <Button
+                    type={"Submit"}
+                > <p>Wijzigen</p>
+                </Button>
             </form>
             <button type="button" onClick={logout}>
                 Uitloggen

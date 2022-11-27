@@ -19,7 +19,7 @@ export function RecipePage() {
                 console.error(e)
             }
         } fetchData();
-},[])
+},[id])
 
     return (
         <>

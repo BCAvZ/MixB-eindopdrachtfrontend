@@ -2,22 +2,18 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import {useForm} from "react-hook-form";
+import {Button} from "../../components/Button/Button";
 
 export function Registration() {
 
     const navigate = useNavigate();
     const { register, handleSubmit, formState: {errors}  } = useForm();
-    // const { loadingRegistration, setLoadingRegistration } = useState(false)
 
     async function registerUser(data) {
-
-        // setLoadingRegistration(true)
-
         const user = {
             ...data,
             role: ["user"],
         };
-
         try {
             await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup',
                 user
@@ -28,13 +24,10 @@ export function Registration() {
             console.log(e.response.message)
             alert('Error! Please try again in 30 seconds')
         }}
-
-
     return (
         <>
             <h1>Registreren</h1>
             <p>Maak een account aan door alle drie de velden in te vullen en vervolgens op indienen te klikken!</p>
-            {/*{loadingRegistration && <p>loading ...</p>}*/}
             <form onSubmit={handleSubmit(registerUser)}>
                 <fieldset>
                     <h4>Gebruikersnaam:</h4>
@@ -63,7 +56,10 @@ export function Registration() {
                     })}/>
                     {errors.password && <p>{errors.password.message}</p>}
 
-                    <button type="submit">indienen</button>
+                    <Button
+                        type={"Submit"}
+                    > <p>Registreren</p>
+                    </Button>
                 </fieldset>
             </form>
             <Link to="/Login">Heb je al een account? Je kunt je hier inloggen.</Link>

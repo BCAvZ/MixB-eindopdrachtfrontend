@@ -3,6 +3,7 @@ import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
+import {Button} from "../../components/Button/Button";
 
 export function Login() {
     const { login } = useContext(AuthContext)
@@ -44,7 +45,10 @@ export function Login() {
                     })}/>
                     {errors.password && <p>{errors.password.message}</p>}
 
-                    <button type="submit">Inloggen</button>
+                    <Button
+                        type={"Submit"}
+                    > <p>Inloggen</p>
+                    </Button>
                 </fieldset>
             </form>
             <Link to="/registration">Heb je nog geen account? Klik hier om je te registreren bij de leukste app van Nederland!</Link>

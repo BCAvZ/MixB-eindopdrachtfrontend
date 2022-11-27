@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {RecipePreviewer} from "../../components/RecipePreviewer/RecipePreviewer";
 import styles from './Home.module.css'
 import SearchBackground from '../../assets/pictures/SearchBackground.png'
+import {Button} from "../../components/Button/Button";
 export function Home() {
     const { register, handleSubmit, formState: {errors} } = useForm();
     const [search, setSearch] = useState('none');
@@ -49,9 +50,18 @@ export function Home() {
                     {
                         required: 'Zoekveld mag niet leeg zijn',
                     })}
-                className={styles['searchField']}/>
-                <Link className={styles['advanced-search-button']} to="/AdvancedSearch">Advanced search!</Link>
-
+                className={styles['searchField']}
+                placeholder={"Enter the name of your cocktail here!"}/>
+                <div className={styles['search-button']}>
+                    <Button
+                        type={"Submit"}
+                    > Zoeken
+                    </Button>
+                </div>
+                <Button
+                    type={"button"}
+                    > <Link to="/AdvancedSearch"><p>Advanced Search</p></Link>
+                </Button>
                 {errors.username && <p>{errors.username.message}</p>}
             </form>
 
