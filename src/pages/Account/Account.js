@@ -35,7 +35,7 @@ export function Account() {
     }
 
     return (
-        <div>
+        <>
             <h1>This is the profile page of {userName}! Welcome!</h1>
             <p>Here you can change your profile picture, email and password! You can change them seperately or together. For example if you want to change only your password fill in those fields and leave email and profile picture blank.</p>
 
@@ -69,6 +69,6 @@ export function Account() {
             <button type="button" onClick={logout}>
                 Uitloggen
             </button>
-        </div>
+        </>
     );
 }

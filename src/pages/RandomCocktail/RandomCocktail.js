@@ -15,6 +15,7 @@ export function RandomCocktail() {
 
             } catch (e) {
                 console.error(e)
+                alert('Error! Please try again in 30 seconds, if it still fails the API might be overloaded try again tomorrow')
             }
         }
 
@@ -26,10 +27,10 @@ export function RandomCocktail() {
 
 
     return (
-        <div>
+        <>
             <Recipe
             apiResult={randomCocktail}
             />
-        </div>
+        </>
     );
 }

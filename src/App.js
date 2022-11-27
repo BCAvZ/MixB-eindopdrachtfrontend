@@ -18,9 +18,13 @@ function App() {
 
   return (
     <>
+        <section className='outer-container'>
+            <header className='inner-container'>
+                    <TopMenu/>
+            </header>
+        </section>
       <section className='outer-container'>
-        <article className='inner-container'>
-          <TopMenu/>
+        <main className='inner-container'>
             <Routes>
               <Route path="/" element={<Home />}/>
 
@@ -46,7 +50,7 @@ function App() {
 
               <Route path="/Blog/:id" element={<Blog />}/>
             </Routes>
-        </article>
+        </main>
       </section>
     </>
   );
