@@ -14,8 +14,9 @@ export function Login() {
                 data
             )
             login(result.data.accessToken)
-        }catch (e) {
+        } catch (e) {
             console.log(e)
+            alert('Wrong email and/or password. Did you register? If done in the last hour please check your spelling and try again')
         }}
 
     return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {RecipePreviewer} from "../../components/RecipePreviewer/RecipePreviewer";
@@ -35,6 +35,7 @@ export function Home() {
                     setSearchResult(result.data.drinks)
                 } catch (e) {
                     console.error(e)
+                    alert('Error! Please try again in 30 seconds, if it still fails the API might be overloaded try again tomorrow')
                 }
             } fetchPageFiller()
         },[])

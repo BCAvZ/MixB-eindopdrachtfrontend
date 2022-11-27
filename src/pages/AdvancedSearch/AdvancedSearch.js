@@ -8,8 +8,6 @@ export function AdvancedSearch() {
 
     const { register, handleSubmit, formState: {errors} } = useForm();
     const [searchResult,setSearchResult] = useState([])
-    // const [submitData, setSubmitData] = useState([])
-    // const [pageResult, setPageResult] = useState([])
 
     async function fetchData(data) {
         try {
@@ -33,14 +31,6 @@ export function AdvancedSearch() {
         }
     }
 
-    // function filter () {
-    //     if(submitData.category) {
-    //         searchResult.category.map((result) => {
-    //             return setPageResult(result.category === submitData.category)
-    //         })
-    //     }
-    // }
-
     function removeEmptyFields(convertedData) {
         Object.keys(convertedData).forEach(key => {
                 if (convertedData[key] === '' || convertedData[key] == null) {
@@ -51,7 +41,7 @@ export function AdvancedSearch() {
     }
 
     return (
-        <div>
+        <>
             <p>You can only search with one field at a time! It goes top down so if you want to search by ingredient leave the name field empty!</p>
             <form onSubmit={handleSubmit(removeEmptyFields)}>
                 <h4>Search by name</h4>
@@ -129,6 +119,6 @@ export function AdvancedSearch() {
                     <RecipePreviewer apiResult={searchResult}></RecipePreviewer>
                 }
             </div>
-        </div>
+        </>
     );
 }

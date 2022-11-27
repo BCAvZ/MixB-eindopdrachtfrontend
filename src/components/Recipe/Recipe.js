@@ -3,7 +3,7 @@ import styles from './Recipe.module.css'
 
 export function Recipe({apiResult}) {
     return (
-        <div>
+        <>
             {Object.keys(apiResult).length > 0 &&
                 <>
                     <h2> {apiResult[0].strDrink}</h2>
@@ -26,6 +26,6 @@ export function Recipe({apiResult}) {
                     <h4>Recipe:</h4><span>{apiResult[0].strInstructions}</span>
                 </>
             }
-        </div>
+        </>
     );
 };

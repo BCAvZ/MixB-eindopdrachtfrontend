@@ -6,7 +6,7 @@ import posts from '../../data/posts.json'
 
 export function Blog() {
 
-    const [searchResult,setSearchResult] = useState(null)
+    const [searchResult,setSearchResult] = useState('')
 
     const {id} = useParams();
 
@@ -21,14 +21,10 @@ export function Blog() {
                 console.error(e)
             }
         } fetchData();
-    },[])
+    },[id])
 
     let stars = '🌟';
     let starsCounter = stars.repeat(posts[id].Stars)
-
-    // function starCounter(data) {
-    //     return data*stars;
-    // }
 
     return (
         <div>
@@ -56,13 +52,6 @@ export function Blog() {
             <p>{posts[id].Recipe_difficulty}</p>
             <h2>History!</h2>
             <p>{posts[id].History}</p>
-            {/*"Id":"0",*/}
-            {/*"Name": "Mojito",*/}
-            {/*"Date": "4-11-2022",*/}
-            {/*"Review": "Personal favorite! The first cocktail i order when i am on vacation in hotter climates.",*/}
-            {/*"Recipe difficulty": "Medium",*/}
-            {/*"History": "Havana, Cuba, is the birthplace of the mojito, although its exact origin is the subject of debate. It was known that the local South American Indians had remedies for various tropical illnesses, so a small boarding party went ashore on Cuba and came back with ingredients for an effective medicine. The ingredients were aguardiente de caña (translated as burning water), a crude form of rum made from sugar cane) mixed with local tropical ingredients: lime, sugarcane juice, and mint. Lime juice on its own would have significantly prevented scurvy and dysentery, and tafia/rum was soon added as it became widely available to the British (ca. 1650). Mint, lime and sugar were also helpful in hiding the harsh taste of this spirit. Another theory is that it was invented by Sir Francis Drake. The El Draque cocktail was prepared with brandy.[10] While this drink was not called a mojito at this time, it was the original combination of these ingredients.",*/}
-            {/*"Stars": "5"*/}
 
             <p>aaa</p>
         </div>

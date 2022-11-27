@@ -22,11 +22,11 @@ export function RecipePage() {
 },[])
 
     return (
-        <div>
+        <>
             <Recipe
                 apiResult={searchResult}
             />
-        </div>
+        </>
     );
 }
 
